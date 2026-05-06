@@ -1,61 +1,177 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import Logo from "../../assets/imgs/logo.png";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Popover } from "antd";
+import { useUserInfo } from "../../store/useUserInfo";
+import { UserOutlined, BookOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [navSelected, setNavSelected] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // ✅ Zustand
+  const { user, logout } = useUserInfo();
+
+  useEffect(() => {
+    setNavSelected(location.pathname);
+  }, [location]);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      navigate(`/manga-list?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery(""); // Clear after search
+    }
+  };
+
+  const content = (
+    <div>
+      <p className="font-bold text-center text-red-500 mb-2">
+        {user?.name}
+      </p>
+      <hr />
+
+      <div
+        onClick={() => navigate("/history")}
+        className="flex gap-2 m-1 cursor-pointer hover:text-red-500"
+      >
+        Lịch sử đọc
+      </div>
+
+      <div
+        onClick={() => navigate("/profile")}
+        className="flex gap-2 m-1 cursor-pointer hover:text-red-500"
+      >
+        Trang cá nhân
+      </div>
+
+      <div
+        onClick={() => navigate("/admin")}
+        className="flex gap-2 m-1 cursor-pointer hover:text-blue-500 text-blue-400 font-semibold"
+      >
+        ⚙️ Quản trị (Admin)
+      </div>
+
+      <hr />
+
+      <button
+        onClick={handleLogout}
+        className="mt-3 bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 text-sm"
+      >
+        Đăng xuất
+      </button>
+    </div>
+  );
+
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div className="w-full bg-slate-800 text-gray-100 shadow">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
         {/* Logo */}
-        <div className="flex-shrink-0">
-          <NavLink to="/" className="block w-10 h-10">
-            <img src={Logo} alt="Logo" className="w-full h-full object-contain" />
-          </NavLink>
+        <div
+          className="text-xl font-bold text-red-500 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          Góc Đọc Truyện
         </div>
 
-        {/* Main Navigation */}
-        <nav className="hidden md:flex flex-1 justify-center space-x-6 text-sm font-medium">
-          <NavLink to="/" className="text-blue-600">Trang chủ</NavLink>
-          <NavLink to="/products" className="text-gray-700 hover:text-blue-600">Sản phẩm</NavLink>
-          <NavLink to="/promotions" className="text-gray-700 hover:text-blue-600">Khuyến mãi</NavLink>
-          <NavLink to="/news" className="text-gray-700 hover:text-blue-600">Tin tức</NavLink>
-          <NavLink to="/contact" className="text-gray-700 hover:text-blue-600">Liên hệ</NavLink>
-        </nav>
+        {/* Menu */}
+        <div className="flex gap-6 text-sm">
+          <span
+            onClick={() => navigate("/")}
+            className={`cursor-pointer ${navSelected === "/" ? "text-red-500" : "hover:text-red-500"
+              }`}
+          >
+            Trang chủ
+          </span>
 
-        {/* Search + Actions */}
-        <div className="flex items-center space-x-4">
+          <span
+            onClick={() => navigate("/products")}
+            className={`cursor-pointer ${navSelected.includes("products")
+                ? "text-red-500"
+                : "hover:text-red-500"
+              }`}
+          >
+            Danh sách
+          </span>
+
+          <span
+            onClick={() => navigate("/contact")}
+            className="cursor-pointer hover:text-red-500"
+          >
+            Liên hệ
+          </span>
+        </div>
+
+        {/* Right */}
+        <div className="flex items-center gap-5">
+
           {/* Search */}
-          <div className="relative hidden md:block w-56">
+          <div className="hidden md:flex items-center relative w-[220px]">
             <input
               type="text"
-              placeholder="Tìm kiếm..."
-              className="w-full px-4 py-2 rounded-full border border-gray-300 text-sm focus:ring-2 focus:ring-blue-500"
+              placeholder="Tìm truyện..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+              className="w-full px-4 py-1.5 rounded-full bg-[#1e293b] border border-gray-600 text-sm outline-none focus:border-red-500 transition-colors"
             />
-            <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
-              <i className="fas fa-search"></i>
+            <button 
+              onClick={handleSearch}
+              className="absolute right-3 text-gray-400 hover:text-red-500 transition-colors"
+            >
+              🔍
             </button>
           </div>
 
-          {/* Cart */}
-          <div className="relative text-gray-700 hover:text-blue-600 cursor-pointer">
-            <i className="fas fa-shopping-cart text-xl"></i>
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-              3
-            </span>
-          </div>
-
           {/* User */}
-          <div className="text-gray-700 hover:text-blue-600 cursor-pointer">
-            <i className="fas fa-user text-xl"></i>
-          </div>
+          <div className="flex items-center gap-4">
+            {user ? (
+              <>
+                {/* User */}
+                <Popover content={content} trigger="click">
+                  <button>
+                    <UserOutlined className="text-lg" />
+                  </button>
+                </Popover>
 
-          {/* Login */}
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700">
-            Đăng nhập
-          </button>
+                {/* Cart */}
+                <button
+                  onClick={() => navigate("/cart")}
+                  className="relative group"
+                >
+                  <ShoppingCartOutlined className="text-lg hover:text-red-500 transition-colors" />
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-slate-800">
+                    2
+                  </span>
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => navigate("/cart")}
+                  className="relative mr-2"
+                >
+                  <ShoppingCartOutlined className="text-lg hover:text-red-500 transition-colors" />
+                </button>
+                <button
+                  onClick={() => navigate("/login")}
+                  className="bg-red-500 px-4 py-1.5 rounded-full text-sm hover:bg-red-600 transition-colors"
+                >
+                  Đăng nhập
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 
