@@ -20,33 +20,34 @@ const MangaCard = ({
   return (
     <div
       onClick={() => navigate(`/manga/${id}`)}
-      className="cursor-pointer group"
+      className="group cursor-pointer"
     >
-      <div className="relative overflow-hidden rounded-xl">
+      <div className="relative overflow-hidden rounded-2xl border border-[#e4e9ef] bg-white shadow-[0_8px_24px_rgba(31,49,66,0.06)] transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_16px_30px_rgba(31,49,66,0.13)]">
         <img
+          alt={title}
           src={image}
-          className="w-full h-[250px] object-cover group-hover:scale-110 transition duration-300"
+          className="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105"
         />
 
         {/* overlay */}
-        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-          <span className="bg-red-500 px-4 py-1 rounded-full text-sm">
+        <div className="absolute inset-0 flex items-center justify-center bg-[#16202a]/45 opacity-0 transition group-hover:opacity-100">
+          <span className="rounded-xl bg-[#e05252] px-4 py-2 text-sm font-semibold text-white shadow-lg">
             Đọc ngay
           </span>
         </div>
 
         {/* chapter */}
-        <span className="absolute bottom-2 left-2 bg-green-700 text-gray-200 text-xs px-2 py-1 rounded">
+        <span className="absolute bottom-2 left-2 rounded-lg bg-[#16202a]/85 px-2 py-1 text-xs text-white">
           {chapter}
         </span>
 
         {/* rating */}
-        <span className="absolute top-2 right-2 bg-yellow-400 text-black text-xs px-2 py-1 rounded">
+        <span className="absolute right-2 top-2 rounded-lg bg-[#fff1bf] px-2 py-1 text-xs font-semibold text-[#795d00]">
           ⭐ {rating}
         </span>
       </div>
 
-      <p className="text-white mt-2 text-sm font-semibold">{title}</p>
+      <p className="mt-3 line-clamp-1 text-sm font-bold text-[#263440]">{title}</p>
     </div>
   );
 };

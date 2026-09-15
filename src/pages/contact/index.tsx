@@ -149,8 +149,8 @@ const ContactPage = () => {
 const s: Record<string, React.CSSProperties> = {
   root: {
     minHeight: "100vh",
-    background: "#090b10",
-    color: "#f1f5f9",
+    background: "#f6f8fb",
+    color: "#16202a",
     paddingTop: 60,
     paddingBottom: 80,
     fontFamily: "'Inter', sans-serif",
@@ -206,8 +206,8 @@ const s: Record<string, React.CSSProperties> = {
   infoCard: {
     flex: 1,
     minWidth: 200,
-    background: "#121620",
-    border: "1px solid rgba(255,255,255,0.06)",
+    background: "#ffffff",
+    border: "1px solid #e4e9ef",
     borderRadius: 16,
     padding: "20px",
     display: "flex",
@@ -216,8 +216,8 @@ const s: Record<string, React.CSSProperties> = {
     transition: "all 0.3s ease",
   },
   infoCardFull: {
-    background: "#121620",
-    border: "1px solid rgba(255,255,255,0.06)",
+    background: "#ffffff",
+    border: "1px solid #e4e9ef",
     borderRadius: 16,
     padding: "20px",
     display: "flex",
@@ -249,8 +249,8 @@ const s: Record<string, React.CSSProperties> = {
 
   /* Form */
   formWrap: {
-    background: "#121620",
-    border: "1px solid rgba(255,255,255,0.06)",
+    background: "#ffffff",
+    border: "1px solid #e4e9ef",
     borderRadius: 24,
     padding: "32px",
     marginTop: 16,
@@ -285,11 +285,11 @@ const s: Record<string, React.CSSProperties> = {
     color: "#94a3b8",
   },
   input: {
-    background: "#090b10",
-    border: "1px solid rgba(255,255,255,0.1)",
+    background: "#f6f8fb",
+    border: "1px solid #d6e0e7",
     borderRadius: 12,
     padding: "12px 16px",
-    color: "#fff",
+    color: "#16202a",
     fontSize: 14,
     outline: "none",
     transition: "all 0.2s ease",
@@ -321,7 +321,7 @@ const s: Record<string, React.CSSProperties> = {
 };
 
 const css = `
-  .info-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.15) !important; background: #161c2b !important; }
+  .info-card:hover { transform: translateY(-5px); border-color: #168f91 !important; background: #f5fbfb !important; }
   .contact-input:focus { border-color: #ef4444 !important; box-shadow: 0 0 0 4px rgba(239,68,68,0.1); }
   .btn-send:hover:not(:disabled) { transform: translateY(-2px); filter: brightness(1.1); box-shadow: 0 15px 40px rgba(239,68,68,0.5) !important; }
   .btn-send:active { transform: translateY(0); }

@@ -50,7 +50,7 @@ const DashboardView = () => (
           {recentMangas.map(m => (
             <tr key={m.id} style={s.tr} className="adm-tr">
               <td style={s.td}>{m.id}</td>
-              <td style={{ ...s.td, fontWeight: 600, color: "#f1f5f9" }}>{m.title}</td>
+              <td style={{ ...s.td, fontWeight: 700, color: "#16202a" }}>{m.title}</td>
               <td style={s.td}>{m.genre}</td>
               <td style={s.td}>{m.views}</td>
               <td style={s.td}>
@@ -67,19 +67,19 @@ const DashboardView = () => (
 );
 
 const s: Record<string, React.CSSProperties> = {
-  pageTitle: { color: "#f1f5f9", fontSize: 22, fontWeight: 800, margin: "0 0 24px", letterSpacing: "-0.3px" },
+  pageTitle: { color: "#16202a", fontSize: 22, fontWeight: 800, margin: "0 0 24px", letterSpacing: "-0.3px" },
   cardGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))", gap: 16, marginBottom: 32 },
-  card: { background: "#1e2435", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "20px 20px", display: "flex", alignItems: "center", gap: 16 },
+  card: { background: "#ffffff", border: "1px solid #e4e9ef", borderRadius: 14, padding: "20px 20px", display: "flex", alignItems: "center", gap: 16 },
   cardIcon: { width: 48, height: 48, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 },
-  cardVal: { color: "#f1f5f9", fontSize: 24, fontWeight: 800, lineHeight: 1 },
-  cardLabel: { color: "#94a3b8", fontSize: 12, marginTop: 4 },
+  cardVal: { color: "#16202a", fontSize: 24, fontWeight: 800, lineHeight: 1 },
+  cardLabel: { color: "#52616d", fontSize: 12, marginTop: 4 },
   cardSub: { color: "#22c55e", fontSize: 11, marginTop: 4 },
-  section: { background: "#1e2435", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: 20, overflow: "auto" },
-  sectionTitle: { color: "#f1f5f9", fontSize: 15, fontWeight: 700, margin: "0 0 16px" },
+  section: { background: "#ffffff", border: "1px solid #e4e9ef", borderRadius: 14, padding: 20, overflow: "auto" },
+  sectionTitle: { color: "#16202a", fontSize: 15, fontWeight: 700, margin: "0 0 16px" },
   table: { width: "100%", borderCollapse: "collapse" as const, fontSize: 13 },
   th: { color: "#64748b", fontWeight: 600, padding: "10px 14px", textAlign: "left" as const, borderBottom: "1px solid rgba(255,255,255,0.06)", whiteSpace: "nowrap" as const },
   tr: { borderBottom: "1px solid rgba(255,255,255,0.04)" },
-  td: { color: "#94a3b8", padding: "11px 14px", whiteSpace: "nowrap" as const },
+  td: { color: "#52616d", padding: "11px 14px", whiteSpace: "nowrap" as const },
   badge: { color: "#fff", fontSize: 10, fontWeight: 700, padding: "3px 9px", borderRadius: 20 },
 };
 

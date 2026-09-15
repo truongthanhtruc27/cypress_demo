@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useCart } from "../../store/useCart";
 
 /* ─── Types ─── */
 interface IMangaDetail {
@@ -61,6 +62,7 @@ const DetailSkeleton = () => (
 const MangaDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   const [manga, setManga] = useState<IMangaDetail | null>(null);
   const [chapters, setChapters] = useState<IChapter[]>([]);
@@ -68,6 +70,14 @@ const MangaDetail = () => {
   const [activeTab, setActiveTab] = useState<"chapters" | "info">("chapters");
   const [chapterSearch, setChapterSearch] = useState("");
   const [imgErr, setImgErr] = useState(false);
+  const [added, setAdded] = useState(false);
+
+  const handleAddToCart = () => {
+    if (!manga) return;
+    addToCart({ id: manga.id, title: manga.title, image: manga.image, category: manga.category });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
+  };
 
   /* ── Fetch manga detail ── */
   useEffect(() => {
@@ -75,7 +85,9 @@ const MangaDetail = () => {
       try {
         setLoading(true);
         const res = await fetch(`http://localhost:5000/api/manga/${id}`);
+        if (!res.ok) throw new Error("Manga request failed");
         const data = await res.json();
+        if (!data || typeof data !== "object") throw new Error("Invalid manga response");
         setManga(data);
       } catch {
         /* fallback */
@@ -103,8 +115,9 @@ const MangaDetail = () => {
     const fetch2 = async () => {
       try {
         const res = await fetch(`http://localhost:5000/api/manga/${id}/chapters`);
+        if (!res.ok) throw new Error("Chapter request failed");
         const data = await res.json();
-        setChapters(data);
+        setChapters(Array.isArray(data) ? data : data?.chapters || []);
       } catch {
         setChapters(
           Array.from({ length: 12 }, (_, i) => ({
@@ -241,6 +254,14 @@ const MangaDetail = () => {
                 className="det-btn-secondary"
               >
                 ⚡ Chương mới nhất
+              </button>
+              <button
+                onClick={handleAddToCart}
+                style={added ? { ...s.btnCart, ...s.btnCartAdded } : s.btnCart}
+                className="det-btn-cart"
+                title="Thêm vào giỏ hàng"
+              >
+                {added ? "✅ Đã thêm!" : "🛒 Thêm giỏ hàng"}
               </button>
               <button style={s.btnIcon} className="det-btn-icon" title="Yêu thích">
                 🔖
@@ -566,6 +587,27 @@ const s: Record<string, React.CSSProperties> = {
     justifyContent: "center",
     transition: "all 0.2s ease",
   },
+  btnCart: {
+    background: "linear-gradient(135deg,#f59e0b,#d97706)",
+    color: "#fff",
+    border: "none",
+    borderRadius: 30,
+    padding: "11px 24px",
+    fontSize: 14,
+    fontWeight: 700,
+    cursor: "pointer",
+    transition: "all 0.25s ease",
+    boxShadow: "0 4px 18px rgba(245,158,11,0.35)",
+    display: "flex",
+    alignItems: "center",
+    gap: 6,
+    whiteSpace: "nowrap" as const,
+  },
+  btnCartAdded: {
+    background: "linear-gradient(135deg,#22c55e,#16a34a)",
+    boxShadow: "0 4px 18px rgba(34,197,94,0.4)",
+    transform: "scale(0.97)",
+  },
 
   /* Bottom section */
   bottomSection: {
@@ -703,9 +745,13 @@ const css = `
   .det-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(230,57,70,0.5) !important; }
   .det-btn-secondary:hover { background: rgba(255,255,255,0.14) !important; }
   .det-btn-icon:hover { background: rgba(230,57,70,0.2) !important; border-color: rgba(230,57,70,0.4) !important; }
+  .det-btn-cart:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 26px rgba(245,158,11,0.55) !important; }
   .det-tab:hover { color: #f1f5f9 !important; }
   .det-chap:hover { background: rgba(230,57,70,0.1) !important; border-color: rgba(230,57,70,0.3) !important; transform: translateX(3px); }
   .det-search:focus { border-color: #e63946 !important; box-shadow: 0 0 0 3px rgba(230,57,70,0.15); }
+
+  @keyframes cartBounce { 0%{transform:scale(1)} 30%{transform:scale(1.35)} 60%{transform:scale(0.9)} 100%{transform:scale(1)} }
+  .cart-bounce { animation: cartBounce 0.45s ease; }
 
   .sk-pulse { animation: skPulse 1.5s ease-in-out infinite; }
   @keyframes skPulse { 0%,100%{opacity:1} 50%{opacity:0.35} }

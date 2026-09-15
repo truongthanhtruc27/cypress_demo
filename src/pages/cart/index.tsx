@@ -1,66 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../store/useCart";
 
-/* ─── Types ─── */
-interface ICartItem {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  quantity: number;
-  category: string;
-}
-
-const MOCK_CART: ICartItem[] = [
-  {
-    id: 1,
-    title: "Solo Leveling - Tập 1",
-    image: "https://cdn.myanimelist.net/images/manga/3/222295l.jpg",
-    price: 150000,
-    quantity: 1,
-    category: "Manga",
-  },
-  {
-    id: 2,
-    title: "One Piece - Volume 100",
-    image: "https://cdn.myanimelist.net/images/manga/2/253146l.jpg",
-    price: 25000,
-    quantity: 2,
-    category: "Manga",
-  },
-];
+/* ─── Price placeholder per manga ─── */
+const PRICE_PER_ITEM = 29000; // 29.000đ / truyện
 
 const CartPage = () => {
   const navigate = useNavigate();
-  const [cart, setCart] = useState<ICartItem[]>(MOCK_CART);
+  const { items, removeFromCart, addToCart, decreaseQty, clearCart } = useCart();
 
-  const updateQty = (id: number, delta: number) => {
-    setCart(prev =>
-      prev.map(item =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-          : item
-      )
-    );
+  /* Tăng qty bằng cách addToCart thêm lần nữa */
+  const increaseQty = (id: number) => {
+    const item = items.find((i) => i.id === id);
+    if (item) addToCart({ id: item.id, title: item.title, image: item.image, category: item.category });
+  };
+
+  /* Giảm qty */
+  const decreaseQtyHandler = (id: number) => {
+    decreaseQty(id);
   };
 
   const removeItem = (id: number) => {
-    if (window.confirm("Xóa sản phẩm này khỏi giỏ hàng?")) {
-      setCart(prev => prev.filter(item => item.id !== id));
+    if (window.confirm("Xóa truyện này khỏi giỏ hàng?")) {
+      removeFromCart(id);
     }
   };
 
-  const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const subtotal = items.reduce((acc, item) => acc + PRICE_PER_ITEM * item.quantity, 0);
   const shipping = subtotal > 0 ? 30000 : 0;
   const total = subtotal + shipping;
 
-  if (cart.length === 0) {
+  /* ── Empty state ── */
+  if (items.length === 0) {
     return (
       <div style={s.emptyRoot}>
+        <style>{css}</style>
         <div style={s.emptyIcon}>🛒</div>
         <h2 style={s.emptyTitle}>Giỏ hàng của bạn đang trống</h2>
         <p style={s.emptyDesc}>Hãy chọn cho mình những bộ truyện yêu thích nhé!</p>
-        <button onClick={() => navigate("/products")} style={s.btnPrimary}>
+        <button onClick={() => navigate("/products")} style={s.btnPrimary} className="cart-btn-primary">
           Tiếp tục mua sắm
         </button>
       </div>
@@ -71,42 +49,65 @@ const CartPage = () => {
     <div style={s.root}>
       <style>{css}</style>
       <div style={s.container}>
-        <h1 style={s.pageTitle}>🛒 Giỏ hàng của bạn</h1>
+        <div style={s.headerRow}>
+          <h1 style={s.pageTitle}>🛒 Giỏ hàng của bạn</h1>
+          <button onClick={() => clearCart()} style={s.clearBtn} className="cart-clear-btn">
+            🗑️ Xóa tất cả
+          </button>
+        </div>
 
         <div style={s.layout}>
-          {/* Left: List */}
+          {/* ── Left: List ── */}
           <div style={s.listCol}>
-            {cart.map(item => (
+            {items.map((item) => (
               <div key={item.id} style={s.itemCard} className="cart-item">
-                <img src={item.image} alt={item.title} style={s.itemImg} />
+                {/* Ảnh */}
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  style={s.itemImg}
+                  onError={(e) => { (e.target as HTMLImageElement).src = "https://picsum.photos/70/100"; }}
+                />
+
+                {/* Info */}
                 <div style={s.itemInfo}>
                   <span style={s.itemCat}>{item.category}</span>
                   <h3 style={s.itemTitle}>{item.title}</h3>
-                  <div style={s.itemPrice}>{item.price.toLocaleString()}đ</div>
+                  <div style={s.itemPrice}>{PRICE_PER_ITEM.toLocaleString()}đ / tập</div>
                 </div>
+
+                {/* Qty controls */}
                 <div style={s.itemControl}>
                   <div style={s.qtyRow}>
-                    <button onClick={() => updateQty(item.id, -1)} style={s.qtyBtn}>-</button>
+                    <button onClick={() => decreaseQtyHandler(item.id)} style={s.qtyBtn} className="cart-qty-btn">-</button>
                     <span style={s.qtyVal}>{item.quantity}</span>
-                    <button onClick={() => updateQty(item.id, 1)} style={s.qtyBtn}>+</button>
+                    <button onClick={() => increaseQty(item.id)} style={s.qtyBtn} className="cart-qty-btn">+</button>
                   </div>
-                  <button onClick={() => removeItem(item.id)} style={s.removeBtn} className="remove-btn">
+                  <button
+                    onClick={() => removeItem(item.id)}
+                    style={s.removeBtn}
+                    className="remove-btn"
+                    title="Xóa"
+                  >
                     🗑️
                   </button>
                 </div>
+
+                {/* Subtotal */}
                 <div style={s.itemSubtotal}>
-                  {(item.price * item.quantity).toLocaleString()}đ
+                  {(PRICE_PER_ITEM * item.quantity).toLocaleString()}đ
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Right: Summary */}
+          {/* ── Right: Summary ── */}
           <div style={s.summaryCol}>
             <div style={s.summaryCard}>
               <h3 style={s.summaryTitle}>Tổng cộng</h3>
+
               <div style={s.sumRow}>
-                <span>Tạm tính:</span>
+                <span>Tạm tính ({items.reduce((a, i) => a + i.quantity, 0)} tập):</span>
                 <span>{subtotal.toLocaleString()}đ</span>
               </div>
               <div style={s.sumRow}>
@@ -119,8 +120,8 @@ const CartPage = () => {
                 <span>{total.toLocaleString()}đ</span>
               </div>
 
-              <button style={s.btnCheckout} className="btn-checkout">
-                THANH TOÁN NGAY
+              <button style={s.btnCheckout} className="btn-checkout" onClick={() => navigate("/checkout")}>
+                THANH TOÁN NGAY 💳
               </button>
 
               <div style={s.promoWrap}>
@@ -142,23 +143,41 @@ const CartPage = () => {
 /* ─── Styles ─── */
 const s: Record<string, React.CSSProperties> = {
   root: {
-    minHeight: "100vh",
-    background: "#090b10",
-    color: "#f1f5f9",
+    background: "#f6f8fb",
+    color: "#16202a",
     paddingTop: 40,
     paddingBottom: 80,
     fontFamily: "'Inter', sans-serif",
   },
   container: {
     maxWidth: 1100,
-    margin: "0 auto",
     padding: "0 20px",
+    margin: "0 auto",
+  },
+  headerRow: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 32,
+    flexWrap: "wrap",
+    gap: 12,
   },
   pageTitle: {
     fontSize: 28,
     fontWeight: 800,
-    marginBottom: 32,
     letterSpacing: "-0.5px",
+    margin: 0,
+  },
+  clearBtn: {
+    background: "rgba(239,68,68,0.1)",
+    border: "1px solid rgba(239,68,68,0.25)",
+    color: "#ef4444",
+    borderRadius: 20,
+    padding: "8px 16px",
+    fontSize: 13,
+    fontWeight: 600,
+    cursor: "pointer",
+    transition: "all 0.2s ease",
   },
   layout: {
     display: "flex",
@@ -173,8 +192,8 @@ const s: Record<string, React.CSSProperties> = {
     gap: 16,
   },
   itemCard: {
-    background: "#121620",
-    border: "1px solid rgba(255,255,255,0.06)",
+    background: "#ffffff",
+    border: "1px solid #e4e9ef",
     borderRadius: 16,
     padding: 16,
     display: "flex",
@@ -197,7 +216,7 @@ const s: Record<string, React.CSSProperties> = {
     fontSize: 10,
     fontWeight: 700,
     color: "#ef4444",
-    textTransform: "uppercase",
+    textTransform: "uppercase" as const,
     letterSpacing: "0.5px",
     display: "block",
     marginBottom: 4,
@@ -206,24 +225,24 @@ const s: Record<string, React.CSSProperties> = {
     fontSize: 16,
     fontWeight: 700,
     margin: "0 0 4px",
-    whiteSpace: "nowrap",
+    whiteSpace: "nowrap" as const,
     overflow: "hidden",
     textOverflow: "ellipsis",
   },
   itemPrice: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#94a3b8",
   },
   itemControl: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "column" as const,
     alignItems: "center",
     gap: 10,
   },
   qtyRow: {
     display: "flex",
     alignItems: "center",
-    background: "#1e2433",
+    background: "#f0f4f7",
     borderRadius: 8,
     padding: "2px",
   },
@@ -238,10 +257,11 @@ const s: Record<string, React.CSSProperties> = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    transition: "color 0.2s",
   },
   qtyVal: {
     width: 32,
-    textAlign: "center",
+    textAlign: "center" as const,
     fontSize: 14,
     fontWeight: 600,
   },
@@ -250,15 +270,16 @@ const s: Record<string, React.CSSProperties> = {
     border: "none",
     fontSize: 16,
     cursor: "pointer",
-    opacity: 0.5,
+    opacity: 0.45,
     transition: "opacity 0.2s",
   },
   itemSubtotal: {
     width: 100,
-    textAlign: "right",
+    textAlign: "right" as const,
     fontSize: 16,
     fontWeight: 700,
     color: "#f1f5f9",
+    flexShrink: 0,
   },
 
   /* Summary */
@@ -267,11 +288,11 @@ const s: Record<string, React.CSSProperties> = {
     minWidth: 300,
   },
   summaryCard: {
-    background: "#121620",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "#ffffff",
+    border: "1px solid #e4e9ef",
     borderRadius: 20,
     padding: 24,
-    position: "sticky",
+    position: "sticky" as const,
     top: 100,
   },
   summaryTitle: {
@@ -280,6 +301,7 @@ const s: Record<string, React.CSSProperties> = {
     marginBottom: 20,
     borderBottom: "1px solid rgba(255,255,255,0.06)",
     paddingBottom: 12,
+    margin: "0 0 20px",
   },
   sumRow: {
     display: "flex",
@@ -314,8 +336,8 @@ const s: Record<string, React.CSSProperties> = {
   },
   promoInput: {
     flex: 1,
-    background: "#090b10",
-    border: "1px solid rgba(255,255,255,0.1)",
+    background: "#f6f8fb",
+    border: "1px solid #d6e0e7",
     borderRadius: 8,
     padding: "8px 12px",
     color: "#fff",
@@ -341,19 +363,20 @@ const s: Record<string, React.CSSProperties> = {
     color: "#64748b",
     fontSize: 14,
     cursor: "pointer",
-    textAlign: "center",
+    textAlign: "center" as const,
   },
 
   /* Empty State */
   emptyRoot: {
     minHeight: "70vh",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "column" as const,
     alignItems: "center",
     justifyContent: "center",
     padding: 40,
-    textAlign: "center",
+    textAlign: "center" as const,
     color: "#64748b",
+    fontFamily: "'Inter', sans-serif",
   },
   emptyIcon: { fontSize: 64, marginBottom: 20, opacity: 0.3 },
   emptyTitle: { color: "#f1f5f9", fontSize: 24, fontWeight: 800, marginBottom: 12 },
@@ -368,14 +391,17 @@ const s: Record<string, React.CSSProperties> = {
     fontWeight: 700,
     cursor: "pointer",
     boxShadow: "0 10px 20px rgba(239,68,68,0.2)",
+    transition: "all 0.2s ease",
   },
 };
 
 const css = `
-  .cart-item:hover { transform: translateX(5px); border-color: rgba(239,68,68,0.3) !important; }
+  .cart-item:hover { transform: translateX(4px); border-color: #e05252 !important; }
   .remove-btn:hover { opacity: 1 !important; color: #ef4444; }
   .btn-checkout:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: 0 12px 30px rgba(239,68,68,0.4) !important; }
-  .btn-checkout:active { transform: translateY(0); }
+  .cart-qty-btn:hover { color: #ef4444 !important; }
+  .cart-clear-btn:hover { background: rgba(239,68,68,0.2) !important; }
+  .cart-btn-primary:hover { transform: translateY(-2px); filter: brightness(1.1); }
 `;
 
 export default CartPage;

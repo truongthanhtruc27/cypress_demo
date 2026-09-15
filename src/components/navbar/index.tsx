@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Popover } from "antd";
 import { useUserInfo } from "../../store/useUserInfo";
-import { UserOutlined, BookOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { useCart } from "../../store/useCart";
+import { UserOutlined, ShoppingCartOutlined, SearchOutlined, MenuOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -13,6 +14,8 @@ const Navbar = () => {
 
   // ✅ Zustand
   const { user, logout } = useUserInfo();
+  const { totalItems } = useCart();
+  const cartCount = totalItems();
 
   useEffect(() => {
     setNavSelected(location.pathname);
@@ -70,22 +73,23 @@ const Navbar = () => {
   );
 
   return (
-    <div className="w-full bg-slate-800 text-gray-100 shadow">
-      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-[#e4e9ef] bg-white/90 text-[#16202a] shadow-[0_4px_20px_rgba(31,49,66,0.06)] backdrop-blur-md">
+      <div className="mx-auto flex max-w-[1180px] items-center justify-between gap-5 px-4 py-3 sm:px-6">
 
         {/* Logo */}
         <div
-          className="text-xl font-bold text-red-500 cursor-pointer"
+          className="flex cursor-pointer items-center gap-2 text-lg font-bold tracking-tight text-[#16202a] sm:text-xl"
           onClick={() => navigate("/")}
         >
-          Góc Đọc Truyện
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#e05252] text-lg text-white shadow-md shadow-red-200">M</span>
+          <span>Góc Đọc Truyện</span>
         </div>
 
         {/* Menu */}
-        <div className="flex gap-6 text-sm">
+        <nav className="hidden items-center gap-1 text-sm font-semibold lg:flex">
           <span
             onClick={() => navigate("/")}
-            className={`cursor-pointer ${navSelected === "/" ? "text-red-500" : "hover:text-red-500"
+            className={`cursor-pointer rounded-lg px-3 py-2 transition-colors ${navSelected === "/" ? "bg-[#fff0ed] text-[#c43d48]" : "text-[#66727f] hover:bg-[#f6f8fb] hover:text-[#c43d48]"
               }`}
           >
             Trang chủ
@@ -93,9 +97,9 @@ const Navbar = () => {
 
           <span
             onClick={() => navigate("/products")}
-            className={`cursor-pointer ${navSelected.includes("products")
-                ? "text-red-500"
-                : "hover:text-red-500"
+            className={`cursor-pointer rounded-lg px-3 py-2 transition-colors ${navSelected.includes("products") || navSelected.includes("manga-list")
+              ? "bg-[#fff0ed] text-[#c43d48]"
+              : "text-[#66727f] hover:bg-[#f6f8fb] hover:text-[#c43d48]"
               }`}
           >
             Danh sách
@@ -103,66 +107,81 @@ const Navbar = () => {
 
           <span
             onClick={() => navigate("/contact")}
-            className="cursor-pointer hover:text-red-500"
+            className="cursor-pointer rounded-lg px-3 py-2 text-[#66727f] transition-colors hover:bg-[#f6f8fb] hover:text-[#c43d48]"
           >
             Liên hệ
           </span>
-        </div>
+
+          {/* <span
+            onClick={() => navigate("/checkout")}
+            className={`cursor-pointer flex items-center gap-1 px-3 py-1 rounded-full text-white font-semibold transition-all ${
+              navSelected.includes("checkout")
+                ? "bg-red-600 shadow-lg shadow-red-900/40"
+                : "bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-400 hover:to-rose-500 shadow-md shadow-red-900/30 hover:shadow-red-900/50"
+            }`}
+          >
+            <CreditCardOutlined className="text-sm" />
+            Thanh Toán
+          </span> */}
+        </nav>
 
         {/* Right */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-3">
 
           {/* Search */}
-          <div className="hidden md:flex items-center relative w-[220px]">
+          <div className="relative hidden w-[220px] items-center md:flex">
             <input
               type="text"
               placeholder="Tìm truyện..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-              className="w-full px-4 py-1.5 rounded-full bg-[#1e293b] border border-gray-600 text-sm outline-none focus:border-red-500 transition-colors"
+              className="w-full rounded-xl border border-[#e4e9ef] bg-[#f6f8fb] px-4 py-2 pr-9 text-sm outline-none transition-colors focus:border-[#e05252] focus:bg-white"
             />
             <button 
               onClick={handleSearch}
-              className="absolute right-3 text-gray-400 hover:text-red-500 transition-colors"
+              className="absolute right-3 text-[#8b98a5] transition-colors hover:text-[#e05252]"
             >
-              🔍
+              <SearchOutlined />
             </button>
           </div>
 
           {/* User */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <button className="rounded-lg p-2 text-[#66727f] hover:bg-[#f6f8fb] lg:hidden" aria-label="Mở menu"><MenuOutlined /></button>
             {user ? (
               <>
                 {/* User */}
                 <Popover content={content} trigger="click">
                   <button>
-                    <UserOutlined className="text-lg" />
+                    <UserOutlined className="text-lg text-[#66727f]" />
                   </button>
                 </Popover>
 
                 {/* Cart */}
                 <button
                   onClick={() => navigate("/cart")}
-                  className="relative group"
+                    className="relative rounded-lg p-2 text-[#66727f] transition hover:bg-[#f6f8fb] hover:text-[#e05252]"
                 >
                   <ShoppingCartOutlined className="text-lg hover:text-red-500 transition-colors" />
-                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-slate-800">
-                    2
-                  </span>
+                  {cartCount > 0 && (
+                    <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full border border-white bg-[#e05252] text-[10px] font-bold text-white">
+                      {cartCount > 99 ? "99+" : cartCount}
+                    </span>
+                  )}
                 </button>
               </>
             ) : (
               <>
                 <button
                   onClick={() => navigate("/cart")}
-                  className="relative mr-2"
+                  className="relative rounded-lg p-2 text-[#66727f] transition hover:bg-[#f6f8fb] hover:text-[#e05252]"
                 >
                   <ShoppingCartOutlined className="text-lg hover:text-red-500 transition-colors" />
                 </button>
                 <button
                   onClick={() => navigate("/login")}
-                  className="bg-red-500 px-4 py-1.5 rounded-full text-sm hover:bg-red-600 transition-colors"
+                  className="rounded-xl bg-[#e05252] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-red-100 transition hover:bg-[#c43d48]"
                 >
                   Đăng nhập
                 </button>
@@ -171,7 +190,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

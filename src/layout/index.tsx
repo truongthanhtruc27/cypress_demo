@@ -1,15 +1,20 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import ChatAI from "../components/chat-ai";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="app-shell">
       <Navbar />
-      <Outlet />  {/* 🔥 BẮT BUỘC */}
+      <main className="page-content">
+        <Outlet />
+      </main>
       <Footer />
+      <ChatAI />
     </div>
   );
 };
+
 
 export default Layout;

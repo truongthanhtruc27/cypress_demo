@@ -24,15 +24,15 @@ export interface Props {
 // ─── Genre list ───
 export const genres = [
   { id: "all",       name: "Tất cả",    value: "",          icon: "📚" },
-  { id: "ACTION",    name: "Action",    value: "ACTION",    icon: "⚔️" },
-  { id: "ADVENTURE", name: "Adventure", value: "ADVENTURE", icon: "🗺️" },
-  { id: "FANTASY",   name: "Fantasy",   value: "FANTASY",   icon: "🔮" },
-  { id: "ROMANCE",   name: "Romance",   value: "ROMANCE",   icon: "💕" },
-  { id: "COMEDY",    name: "Comedy",    value: "COMEDY",    icon: "😄" },
-  { id: "HORROR",    name: "Horror",    value: "HORROR",    icon: "👻" },
-  { id: "SCIFI",     name: "Sci-Fi",    value: "SCIFI",     icon: "🚀" },
-  { id: "SPORTS",    name: "Sports",    value: "SPORTS",    icon: "🏆" },
-  { id: "SLICE",     name: "Slice of Life", value: "SLICE", icon: "🌸" },
+  { id: "ACTION",    name: "Nhiệt huyết", value: "ACTION",    icon: "⚔️" },
+  { id: "ADVENTURE", name: "Du hành",    value: "ADVENTURE", icon: "🗺️" },
+  { id: "FANTASY",   name: "Kỳ ảo",      value: "FANTASY",   icon: "🔮" },
+  { id: "ROMANCE",   name: "Lãng mạn",   value: "ROMANCE",   icon: "💕" },
+  { id: "COMEDY",    name: "Đời thường", value: "COMEDY",    icon: "😄" },
+  { id: "HORROR",    name: "Bí ẩn",      value: "HORROR",    icon: "👻" },
+  { id: "SCIFI",     name: "Tương lai",  value: "SCIFI",     icon: "🚀" },
+  { id: "SPORTS",    name: "Bứt phá",    value: "SPORTS",    icon: "🏆" },
+  { id: "SLICE",     name: "Nhịp sống",  value: "SLICE",     icon: "🌸" },
 ];
 
 // ─── Sort options ───

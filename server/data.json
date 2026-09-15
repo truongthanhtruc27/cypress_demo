@@ -1,0 +1,300 @@
+{
+  "users": [
+    {
+      "id": 1788525608655,
+      "username": "Thanh Trúc",
+      "name": "Thanh Trúc",
+      "email": "truongthanhtruc2711@gmail.com",
+      "password": "$2a$10$7EySWbH1bpCwqZh.vAqCC.d9UP1a4lDz3NtIw8hdSTvaoRx3MCqCW",
+      "role": "user"
+    },
+    {
+      "id": 1788532034106,
+      "username": "testuser",
+      "name": "testuser",
+      "email": "testuser@gmail.com",
+      "password": "$2a$10$T0g0wzBYoisxYihxL6.XYuyvyfF42pdwwXM9JcfM0e3r3Cje0Uvc2",
+      "role": "user"
+    },
+    {
+      "id": 1788533429167,
+      "username": "cypress_test",
+      "name": "cypress_test",
+      "email": "truongthanhtruc@gmail.com",
+      "password": "$2a$10$rHoXkrAArV1QK4uC5KOy3u2RExkWVzSLDZeB8eO3N3aLvX8OPg9j6",
+      "role": "user"
+    },
+    {
+      "id": 1788538961830,
+      "username": "cypress_test1",
+      "name": "cypress_test1",
+      "email": "testuserq@gmail.com",
+      "password": "$2a$10$PLz/E9F1GlVkz5P/atsHcOVLYpGhE.aon68tUoLp6QeJ1Vw36xdsq",
+      "role": "user"
+    },
+    {
+      "id": 1788869373897,
+      "username": "cypress_1788869370606",
+      "name": "cypress_1788869370606",
+      "email": "cypress_1788869370606@gmail.com",
+      "password": "$2a$10$9TyxsTvp13VKzmCTIloUG..3dlG/YkgVcqyOjZ4cMy6g/kN5cK.y6",
+      "role": "user"
+    },
+    {
+      "id": 1788869521348,
+      "username": "cypress_1788869517933",
+      "name": "cypress_1788869517933",
+      "email": "cypress_1788869517933@gmail.com",
+      "password": "$2a$10$Box5RmFq.T74kZGr3QjaDePtp2mPdXf8pl7TiRmCk2sTmhNH9WOkq",
+      "role": "user"
+    },
+    {
+      "id": 1788869575612,
+      "username": "cypress_1788869570880",
+      "name": "cypress_1788869570880",
+      "email": "cypress_1788869570880@gmail.com",
+      "password": "$2a$10$Rk5aHHABAgVJlB9T9HKiOOqnEjCOjdf3U4dMpiVGEruckEOKIQYnm",
+      "role": "user"
+    },
+    {
+      "id": 1788869717939,
+      "username": "cypress_1788869714510",
+      "name": "cypress_1788869714510",
+      "email": "cypress_1788869714510@gmail.com",
+      "password": "$2a$10$xIQZu6kMuAdTn.kFL9wFZeXaxVwINtK1/vwPWwo1pYLfthLGPE5ku",
+      "role": "user"
+    },
+    {
+      "id": 1788871734670,
+      "username": "cypress_1788871732478",
+      "name": "cypress_1788871732478",
+      "email": "cypress_1788871732478@gmail.com",
+      "password": "$2a$10$E6SOW0OYYW5qwG05CHMRNewx6d9GsIqslLQoDoJgSFRPelOImXN4m",
+      "role": "user"
+    },
+    {
+      "id": 1788872555808,
+      "username": "cypress_1788872551127",
+      "name": "cypress_1788872551127",
+      "email": "cypress_1788872551127@gmail.com",
+      "password": "$2a$10$hfb/uO/UvmW2zV3KwCL0O.6h/.qrxErpZGIHkALsKmpYtO3T0xlO6",
+      "role": "user"
+    },
+    {
+      "id": 1788873097808,
+      "username": "cypress_1788873095003",
+      "name": "cypress_1788873095003",
+      "email": "cypress_1788873095003@gmail.com",
+      "password": "$2a$10$08CRsOcLLYaaIQ42QtGrKuyPiVha2mGCjZZJ4KbrSWjOJU5c3Gq7K",
+      "role": "user"
+    },
+    {
+      "id": 1788873118574,
+      "username": "cypress_1788873114868",
+      "name": "cypress_1788873114868",
+      "email": "cypress_1788873114868@gmail.com",
+      "password": "$2a$10$vO1CzWR9Tw1rfneTxquYwe0plAezE1ORl2WrTOepdtvYxUERew0Wi",
+      "role": "user"
+    },
+    {
+      "id": 1788873156656,
+      "username": "cypress_1788873151083",
+      "name": "cypress_1788873151083",
+      "email": "cypress_1788873151083@gmail.com",
+      "password": "$2a$10$olKvJ3B44T7cGE1tFRWjkeU.wf.AidXrNZk3.5w.Ppw.KZGxN661m",
+      "role": "user"
+    },
+    {
+      "id": 1788873249184,
+      "username": "cypress_1788873238078",
+      "name": "cypress_1788873238078",
+      "email": "cypress_1788873238078@gmail.com",
+      "password": "$2a$10$0lGIyCjwd2Kl3exbhApPyOi/ToXZC0k7iQDVR/uEum5Y6cZhSw1HK",
+      "role": "user"
+    },
+    {
+      "id": 1788873529068,
+      "username": "cypress_1788873518401",
+      "name": "cypress_1788873518401",
+      "email": "cypress_1788873518401@gmail.com",
+      "password": "$2a$10$/1CxFjDXloOPjouf4avM0.raOl8AIWke2fPXWGEeNecfdvNm02cge",
+      "role": "user"
+    },
+    {
+      "id": 1788874031307,
+      "username": "cypress_1788874019630",
+      "name": "cypress_1788874019630",
+      "email": "cypress_1788874019630@gmail.com",
+      "password": "$2a$10$OOA0IL.oFMdz8o08Ncv1zexcHQYdXOkv6OEPZrDZivZoGGvBQrsQ6",
+      "role": "user"
+    },
+    {
+      "id": 1788874072147,
+      "username": "cypress_1788874061313",
+      "name": "cypress_1788874061313",
+      "email": "cypress_1788874061313@gmail.com",
+      "password": "$2a$10$ILaQ5ktnKopDYh8K3Vx6oOPO2dptj0XnqRoCONXvdu5Ageof1tB1S",
+      "role": "user"
+    },
+    {
+      "id": 1788874305808,
+      "username": "cypress_1788874294583",
+      "name": "cypress_1788874294583",
+      "email": "cypress_1788874294583@gmail.com",
+      "password": "$2a$10$C5S4GAcxnT27GSa8KHEK1eurCfKfYrCwLLT3Enhqs5Hd7QGA80lAi",
+      "role": "user"
+    },
+    {
+      "id": 1788874450589,
+      "username": "cypress_1788874439919",
+      "name": "cypress_1788874439919",
+      "email": "cypress_1788874439919@gmail.com",
+      "password": "$2a$10$IFmbvlN25UcnQgH3L3ASTen7IVsoIAU.GgeykLn4QzSn.noDqhR3G",
+      "role": "user"
+    },
+    {
+      "id": 1788915388727,
+      "username": "cypress_1788915374241",
+      "name": "cypress_1788915374241",
+      "email": "cypress_1788915374241@gmail.com",
+      "password": "$2a$10$eZ.VdJthfhkfMMHvJHZu8O8rCQaisTHJVKCSoHPs1JjrBh8GV70pq",
+      "role": "user"
+    },
+    {
+      "id": 1788916104865,
+      "username": "cypress_1788916094251",
+      "name": "cypress_1788916094251",
+      "email": "cypress_1788916094251@gmail.com",
+      "password": "$2a$10$d74uGb8o8mc6XeYz..TlzeQkNhYpeONzbpjjQWCg1SPc7epJypBQW",
+      "role": "user"
+    },
+    {
+      "id": 1788916776813,
+      "username": "cypress_1788916766186",
+      "name": "cypress_1788916766186",
+      "email": "cypress_1788916766186@gmail.com",
+      "password": "$2a$10$0LxV2lpYMzotwzYOHIgDJ.TC5uzEfAnXlEMprpxtDFqJLLNJsBGpW",
+      "role": "user"
+    },
+    {
+      "id": 1788916880705,
+      "username": "cypress_1788916869452",
+      "name": "cypress_1788916869452",
+      "email": "cypress_1788916869452@gmail.com",
+      "password": "$2a$10$NS/tcEJHCTHsm3HEvuiqxeqDXYTnt9wAbdA98ddqFS/8olnbd.x7a",
+      "role": "user"
+    },
+    {
+      "id": 1788917358311,
+      "username": "cypress_1788917346314",
+      "name": "cypress_1788917346314",
+      "email": "cypress_1788917346314@gmail.com",
+      "password": "$2a$10$JMRTONTsIiOF45foriZEXezmkXb2DqrKCzOzubqxVOZb2otuCvewO",
+      "role": "user"
+    },
+    {
+      "id": 1788917390018,
+      "username": "cypress_1788917379434",
+      "name": "cypress_1788917379434",
+      "email": "cypress_1788917379434@gmail.com",
+      "password": "$2a$10$ctBf.O/bydSbn7w9UbcfXeg9USoxYwgmCM0YcJYaf9oJE6jkAZSwe",
+      "role": "user"
+    },
+    {
+      "id": 1788917799930,
+      "username": "cypress_1788917788749",
+      "name": "cypress_1788917788749",
+      "email": "cypress_1788917788749@gmail.com",
+      "password": "$2a$10$RuwYs3HbamzixpS3SwPFHemCoeguAMJderS7jcuwpjwD83vHXAjpC",
+      "role": "user"
+    },
+    {
+      "id": 1788918086634,
+      "username": "cypress_1788918076058",
+      "name": "cypress_1788918076058",
+      "email": "cypress_1788918076058@gmail.com",
+      "password": "$2a$10$bJ7hufEtzzpWygcdrpwP0u4R2VyMoqfpoWeiXpsKtDAtM59sf3zJq",
+      "role": "user"
+    }
+  ],
+  "mangas": [
+    {
+      "id": 1,
+      "title": "Solo Leveling",
+      "image": "/images/Tranh1/Chuong1/1.jpg",
+      "chapter": "Chương 10",
+      "rating": 4.9,
+      "category": "ACTION",
+      "author": "Chugong",
+      "status": "completed",
+      "views": 125000,
+      "description": "Một thợ săn yếu nhất bước vào hành trình vượt qua giới hạn của chính mình.",
+      "isHot": true
+    },
+    {
+      "id": 2,
+      "title": "Thám tử Conan",
+      "image": "/images/Conan/Chuong1/1.jpg",
+      "chapter": "Chương 5",
+      "rating": 4.8,
+      "category": "HORROR",
+      "author": "Gosho Aoyama",
+      "status": "ongoing",
+      "views": 98000,
+      "description": "Những vụ án bí ẩn và cuộc truy tìm sự thật không ngừng nghỉ.",
+      "isNew": true
+    },
+    {
+      "id": 3,
+      "title": "One Punch Man",
+      "image": "/images/OnepunchMan/Chuong1/1.jpeg",
+      "chapter": "Chương 10",
+      "rating": 4.7,
+      "category": "COMEDY",
+      "author": "ONE",
+      "status": "ongoing",
+      "views": 210000,
+      "description": "Một cú đấm đủ mạnh để kết thúc mọi trận chiến, nhưng không đủ để hết buồn chán.",
+      "isHot": true
+    },
+    {
+      "id": 4,
+      "title": "Vua Hải Tặc",
+      "image": "/images/VuaHaiTac/Chuong1/1.jpg",
+      "chapter": "Chương 10",
+      "rating": 4.9,
+      "category": "ADVENTURE",
+      "author": "Eiichiro Oda",
+      "status": "ongoing",
+      "views": 500000,
+      "description": "Hành trình vượt đại dương để tìm kho báu huyền thoại.",
+      "isHot": true
+    },
+    {
+      "id": 5,
+      "title": "Doraemon",
+      "image": "/images/Doraemon/1.jpg",
+      "chapter": "Chương 8",
+      "rating": 4.6,
+      "category": "SLICE",
+      "author": "Fujiko F. Fujio",
+      "status": "completed",
+      "views": 76000,
+      "description": "Những chuyến phiêu lưu đời thường đầy bất ngờ của Nobita và Doraemon.",
+      "isNew": true
+    },
+    {
+      "id": 6,
+      "title": "Kyochuu Rettou",
+      "image": "/images/KyochuuRettou/1.jpg",
+      "chapter": "Chương 10",
+      "rating": 4.5,
+      "category": "HORROR",
+      "author": "Yasutaka Fujimi",
+      "status": "ongoing",
+      "views": 53000,
+      "description": "Sinh tồn giữa hòn đảo nơi những sinh vật khổng lồ thống trị.",
+      "isNew": true
+    }
+  ]
+}

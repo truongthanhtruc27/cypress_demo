@@ -44,8 +44,8 @@ const PieChart = () => {
         {slices.map((sl, i) => (
           <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <div style={{ width: 12, height: 12, borderRadius: 3, background: sl.color, flexShrink: 0 }} />
-            <span style={{ color: "#94a3b8", fontSize: 13 }}>
-              {sl.name} <strong style={{ color: "#f1f5f9" }}>{(sl.pct * 100).toFixed(1)}%</strong>
+            <span style={{ color: "#52616d", fontSize: 13 }}>
+              {sl.name} <strong style={{ color: "#16202a" }}>{(sl.pct * 100).toFixed(1)}%</strong>
             </span>
           </div>
         ))}
@@ -71,7 +71,7 @@ const StatsView = () => {
 
       {tab === "chart" ? (
         <div style={{ ...s.tableWrap, padding: 32 }}>
-          <h3 style={{ color: "#f1f5f9", margin: "0 0 24px", fontWeight: 700 }}>Thống kê truyện theo loại</h3>
+          <h3 style={{ color: "#16202a", margin: "0 0 24px", fontWeight: 700 }}>Thống kê truyện theo loại</h3>
           <PieChart />
         </div>
       ) : (
@@ -94,7 +94,7 @@ const StatsView = () => {
                 {filtered.map(d => (
                   <tr key={d.id} style={s.tr} className="adm-tr">
                     <td style={s.td}>{d.id}</td>
-                    <td style={{ ...s.td, color: "#f1f5f9", fontWeight: 600 }}>{d.name}</td>
+                    <td style={{ ...s.td, color: "#16202a", fontWeight: 700 }}>{d.name}</td>
                     <td style={s.td}>{d.count}</td>
                     <td style={s.td}>{d.views}</td>
                     <td style={s.td}>{d.vMin}</td>
@@ -116,19 +116,19 @@ const StatsView = () => {
 };
 
 const s: Record<string, React.CSSProperties> = {
-  title: { color: "#f1f5f9", fontSize: 22, fontWeight: 800, margin: "0 0 20px" },
+  title: { color: "#16202a", fontSize: 22, fontWeight: 800, margin: "0 0 20px" },
   tabs: { display: "flex", gap: 8, marginBottom: 20 },
-  tab: { background: "#1e2435", border: "1px solid rgba(255,255,255,0.08)", color: "#64748b", borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.15s" },
-  tabActive: { background: "linear-gradient(135deg,#6366f1,#4f46e5)", color: "#fff", border: "1px solid #6366f1" },
+  tab: { background: "#ffffff", border: "1px solid #d6e0e7", color: "#52616d", borderRadius: 8, padding: "8px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.15s" },
+  tabActive: { background: "#16202a", color: "#fff", border: "1px solid #16202a" },
   toolbar: { display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" as const },
-  input: { background: "#1e2435", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, padding: "9px 14px", color: "#f1f5f9", fontSize: 13, outline: "none", flex: 1, minWidth: 200 },
+  input: { background: "#ffffff", border: "1px solid #d6e0e7", borderRadius: 8, padding: "9px 14px", color: "#16202a", fontSize: 13, outline: "none", flex: 1, minWidth: 200 },
   btnBlue: { background: "#3b82f6", border: "none", color: "#fff", borderRadius: 8, padding: "9px 18px", fontSize: 13, fontWeight: 700, cursor: "pointer" },
-  tableWrap: { background: "#1e2435", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, overflow: "auto" },
+  tableWrap: { background: "#ffffff", border: "1px solid #e4e9ef", borderRadius: 14, overflow: "auto" },
   table: { width: "100%", borderCollapse: "collapse" as const, fontSize: 12, minWidth: 900 },
   thead: { background: "rgba(99,102,241,0.15)" },
   th: { color: "#94a3b8", fontWeight: 700, padding: "12px 14px", textAlign: "left" as const, borderBottom: "1px solid rgba(255,255,255,0.07)", whiteSpace: "nowrap" as const },
   tr: { borderBottom: "1px solid rgba(255,255,255,0.04)" },
-  td: { color: "#94a3b8", padding: "11px 14px", whiteSpace: "nowrap" as const },
+  td: { color: "#52616d", padding: "11px 14px", whiteSpace: "nowrap" as const },
 };
 
 export default StatsView;

@@ -5,7 +5,7 @@ import manga4 from "../../assets/imgs/manga4.jpg";
 import manga5 from "../../assets/imgs/manga5.jpg";
 import manga6 from "../../assets/imgs/manga6.png";
 
-// 👉 danh sách thể loại (giống dataOptions bên laptop)
+// Danh sách thể loại dùng cho dữ liệu mẫu.
 export const genreOptions = [
   { id: 1, label: "Action", value: "action" },
   { id: 2, label: "Romance", value: "romance" },

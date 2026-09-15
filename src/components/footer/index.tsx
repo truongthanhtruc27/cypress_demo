@@ -1,37 +1,41 @@
-const Footer = () => {
-  return (
-    <footer className="bg-[#0f172a] text-gray-300 border-t border-white/5">
+import { useNavigate } from "react-router-dom";
 
-      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+const Footer = () => {
+  const navigate = useNavigate();
+
+  return (
+    <footer className="border-t border-[#e4e9ef] bg-white text-[#66727f]">
+
+      <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-8 px-6 py-12 sm:grid-cols-2 md:grid-cols-3">
 
         {/* LOGO + DESC */}
         <div>
-          <h2 className="text-xl font-bold text-white mb-3">
-            📚 MangaWeb
+          <h2 className="mb-3 font-['Space_Grotesk'] text-xl font-bold text-[#16202a]">
+            Góc Đọc Truyện
           </h2>
-          <p className="text-sm text-gray-400 leading-relaxed">
+          <p className="text-sm leading-relaxed">
             Website đọc truyện online miễn phí. Cập nhật nhanh các bộ truyện hot,
             giao diện mượt mà, trải nghiệm tốt trên mọi thiết bị.
           </p>
         </div>
 
-        {/* MENU */}
+      
         <div>
-          <h3 className="text-white font-semibold mb-3">
+          <h3 className="mb-3 font-semibold text-[#16202a]">
             Điều hướng
           </h3>
 
           <ul className="space-y-2 text-sm">
-            <li className="hover:text-red-400 cursor-pointer transition">
+            <li onClick={() => navigate("/")} className="cursor-pointer transition hover:text-[#e05252]">
               Trang chủ
             </li>
-            <li className="hover:text-red-400 cursor-pointer transition">
+            <li onClick={() => navigate("/products")} className="cursor-pointer transition hover:text-[#e05252]">
               Danh sách truyện
             </li>
-            <li className="hover:text-red-400 cursor-pointer transition">
+            <li onClick={() => navigate("/products")} className="cursor-pointer transition hover:text-[#e05252]">
               Thể loại
             </li>
-            <li className="hover:text-red-400 cursor-pointer transition">
+            <li onClick={() => navigate("/contact")} className="cursor-pointer transition hover:text-[#e05252]">
               Liên hệ
             </li>
           </ul>
@@ -39,18 +43,18 @@ const Footer = () => {
 
         {/* SOCIAL */}
         <div>
-          <h3 className="text-white font-semibold mb-3">
+          <h3 className="mb-3 font-semibold text-[#16202a]">
             Kết nối
           </h3>
 
           <div className="flex flex-wrap gap-3">
-            <span className="bg-[#1f2937] px-3 py-2 rounded hover:bg-red-500 transition cursor-pointer">
+            <span className="cursor-pointer rounded-lg border border-[#e4e9ef] bg-[#f6f8fb] px-3 py-2 transition hover:border-[#e05252] hover:text-[#e05252]">
               Facebook
             </span>
-            <span className="bg-[#1f2937] px-3 py-2 rounded hover:bg-red-500 transition cursor-pointer">
+            <span className="cursor-pointer rounded-lg border border-[#e4e9ef] bg-[#f6f8fb] px-3 py-2 transition hover:border-[#e05252] hover:text-[#e05252]">
               YouTube
             </span>
-            <span className="bg-[#1f2937] px-3 py-2 rounded hover:bg-red-500 transition cursor-pointer">
+            <span className="cursor-pointer rounded-lg border border-[#e4e9ef] bg-[#f6f8fb] px-3 py-2 transition hover:border-[#e05252] hover:text-[#e05252]">
               TikTok
             </span>
           </div>
@@ -59,7 +63,7 @@ const Footer = () => {
       </div>
 
       {/* COPYRIGHT */}
-      <div className="text-center text-sm text-gray-500 border-t border-white/5 py-4">
+      <div className="border-t border-[#e4e9ef] py-4 text-center text-sm text-[#8b98a5]">
         © 2026 MangaWeb. All rights reserved.
       </div>
 

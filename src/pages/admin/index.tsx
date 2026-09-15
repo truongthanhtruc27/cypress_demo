@@ -99,14 +99,15 @@ const s: Record<string, React.CSSProperties> = {
   root: {
     display: "flex",
     minHeight: "100vh",
-    background: "#090b10",
-    fontFamily: "'Inter','Segoe UI',sans-serif",
+    background: "#f6f8fb",
+    color: "#16202a",
+    fontFamily: "'DM Sans','Segoe UI',sans-serif",
   },
 
   /* Sidebar */
   sidebar: {
-    background: "#0f1117",
-    borderRight: "1px solid rgba(255,255,255,0.07)",
+    background: "#16202a",
+    borderRight: "1px solid #263440",
     display: "flex",
     flexDirection: "column",
     flexShrink: 0,
@@ -165,8 +166,8 @@ const s: Record<string, React.CSSProperties> = {
   /* Main area */
   main: { flex: 1, display: "flex", flexDirection: "column" as const, minWidth: 0 },
   topBar: {
-    background: "#0f1117",
-    borderBottom: "1px solid rgba(255,255,255,0.07)",
+    background: "#ffffff",
+    borderBottom: "1px solid #e4e9ef",
     padding: "0 24px",
     height: 56,
     display: "flex",
@@ -177,27 +178,29 @@ const s: Record<string, React.CSSProperties> = {
     zIndex: 10,
   },
   topLeft: { display: "flex", alignItems: "center", gap: 12 },
-  breadcrumb: { color: "#f1f5f9", fontWeight: 700, fontSize: 15 },
+  breadcrumb: { color: "#16202a", fontWeight: 700, fontSize: 15 },
   topRight: { display: "flex", alignItems: "center", gap: 12 },
   adminAvatar: {
     display: "flex",
     alignItems: "center",
     gap: 8,
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "#f6f8fb",
+    border: "1px solid #e4e9ef",
     borderRadius: 30,
     padding: "6px 14px",
     cursor: "pointer",
   },
-  content: { flex: 1, padding: "28px 28px 60px" },
+  content: { flex: 1, padding: "28px 28px 60px", background: "#f6f8fb" },
 };
 
 const css = `
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  .adm-nav-btn { color: #aebbc6 !important; }
+  .adm-nav-btn:hover { background: rgba(255,255,255,0.1) !important; color: #ffffff !important; }
+  .adm-nav-btn[style*="linear-gradient"] { color: #ffffff !important; }
   .adm-nav-btn:hover { background: rgba(255,255,255,0.06) !important; color: #f1f5f9 !important; }
-  .adm-tr:hover { background: rgba(255,255,255,0.03) !important; }
-  .adm-input:focus { border-color: #6366f1 !important; box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
-  .adm-select option { background: #1e2435; }
+  .adm-tr:hover { background: #f0f6f7 !important; }
+  .adm-input:focus { border-color: #168f91 !important; box-shadow: 0 0 0 3px rgba(22,143,145,0.15); }
+  .adm-select option { background: #ffffff; color: #16202a; }
 `;
 
 export default AdminPage;

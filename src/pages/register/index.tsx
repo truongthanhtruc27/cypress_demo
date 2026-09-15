@@ -1,7 +1,7 @@
 import { Input } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Register = () => {
@@ -13,8 +13,8 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e?: any) => {
-    if (e) e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
     // ✅ Validate
     if (!username || !email || !password || !confirmPassword) {
@@ -27,11 +27,16 @@ const Register = () => {
       return;
     }
 
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      toast.error("Email không hợp lệ!");
+      return;
+    }
+
     try {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:5000/api/manga/register", // ✅ FIX URL
+        "/api/manga/register",
         {
           username,
           email,
@@ -58,58 +63,53 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center
-                    bg-gradient-to-br from-black via-gray-900 to-indigo-900">
+    <div className="flex min-h-screen items-center justify-center bg-[#f6f8fb] px-4 py-10">
 
-      <div className="w-full max-w-md p-8 rounded-2xl
-                      bg-black/60 backdrop-blur-xl
-                      border border-indigo-500/30
-                      shadow-[0_0_40px_rgba(99,102,241,0.5)]">
+      <div className="w-full max-w-md rounded-3xl border border-[#e4e9ef] bg-white p-8 shadow-[0_22px_60px_rgba(31,49,66,0.12)] sm:p-10">
 
-        <h2 className="text-4xl text-center mb-8 font-bold
-                       text-transparent bg-clip-text
-                       bg-gradient-to-r from-indigo-400 to-purple-500 tracking-widest">
-          ✦ REGISTER ✦
+        <p className="mb-2 text-center text-xs font-bold uppercase tracking-[0.2em] text-[#168f91]">Tạo tài khoản mới</p>
+        <h2 className="mb-8 text-center font-['Space_Grotesk'] text-3xl font-bold text-[#16202a]">
+          Góc Đọc Truyện
         </h2>
 
         <form onSubmit={handleSubmit}>
-          <label className="text-gray-300 text-sm">Tên đăng nhập</label>
+          <label className="text-sm font-semibold text-[#52616d]">Tên đăng nhập</label>
           <div className="mb-4 mt-1">
             <Input
               placeholder="Nhập tên..."
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="!bg-black/40 !text-white !border-indigo-400/30 !p-3"
+              className="!rounded-xl !border-[#d6e0e7] !bg-[#f6f8fb] !p-3 !text-[#16202a]"
             />
           </div>
 
-          <label className="text-gray-300 text-sm">Email</label>
+          <label className="text-sm font-semibold text-[#52616d]">Email</label>
           <div className="mb-4 mt-1">
             <Input
               placeholder="Nhập email..."
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="!bg-black/40 !text-white !border-indigo-400/30 !p-3"
+              className="!rounded-xl !border-[#d6e0e7] !bg-[#f6f8fb] !p-3 !text-[#16202a]"
             />
           </div>
 
-          <label className="text-gray-300 text-sm">Mật khẩu</label>
+          <label className="text-sm font-semibold text-[#52616d]">Mật khẩu</label>
           <div className="mb-4 mt-1">
             <Input.Password
               placeholder="Nhập mật khẩu..."
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="!bg-black/40 !text-white !border-indigo-400/30 !p-3"
+              className="!rounded-xl !border-[#d6e0e7] !bg-[#f6f8fb] !p-3 !text-[#16202a]"
             />
           </div>
 
-          <label className="text-gray-300 text-sm">Xác nhận mật khẩu</label>
+          <label className="text-sm font-semibold text-[#52616d]">Xác nhận mật khẩu</label>
           <div className="mb-6 mt-1">
             <Input.Password
               placeholder="Nhập lại mật khẩu..."
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="!bg-black/40 !text-white !border-indigo-400/30 !p-3"
+              className="!rounded-xl !border-[#d6e0e7] !bg-[#f6f8fb] !p-3 !text-[#16202a]"
             />
           </div>
 
@@ -117,10 +117,8 @@ const Register = () => {
             type="submit"
             disabled={loading}
             className="w-full p-3 rounded-lg font-bold
-                       bg-gradient-to-r from-indigo-500 to-purple-600
-                       hover:from-purple-600 hover:to-indigo-500
-                       text-white shadow-lg transition duration-300
-                       hover:scale-[1.03] disabled:opacity-50"
+                       bg-[#168f91] hover:bg-[#0f7375] text-white shadow-lg shadow-teal-100 transition duration-300
+                       hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? "Đang xử lý..." : "Đăng ký"}
           </button>
@@ -128,11 +126,11 @@ const Register = () => {
 
         <div className="border-b border-indigo-400/30 mt-6"></div>
 
-        <div className="text-center mt-6 text-sm text-indigo-300">
+        <div className="mt-6 text-center text-sm text-[#52616d]">
           Đã có tài khoản?{" "}
-          <a href="/login" className="hover:underline">
+          <Link to="/login" className="font-semibold text-[#e05252] hover:underline">
             Đăng nhập
-          </a>
+          </Link>
         </div>
       </div>
     </div>

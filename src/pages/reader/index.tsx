@@ -6,6 +6,23 @@ type Manga = { id: number; title: string; image?: string };
 type Chapter = { id?: number; title: string; pages: string[] };
 type ChapterMeta = { id: number; title: string };
 
+const localChapterConfig: Record<number, { folder: string; extension: string; count: number; hasChapters?: boolean }> = {
+  1: { folder: "Tranh1", extension: "jpg", count: 10, hasChapters: true },
+  2: { folder: "Conan", extension: "jpg", count: 5, hasChapters: true },
+  3: { folder: "OnepunchMan", extension: "jpeg", count: 10, hasChapters: true },
+  4: { folder: "VuaHaiTac", extension: "jpg", count: 10, hasChapters: true },
+  5: { folder: "Doraemon", extension: "jpg", count: 8 },
+  6: { folder: "KyochuuRettou", extension: "jpg", count: 10 },
+};
+
+const getLocalPages = (mangaId: number, chapterId: number) => {
+  const config = localChapterConfig[mangaId] || localChapterConfig[1];
+  const folder = config.hasChapters ? `${config.folder}/Chuong${chapterId === 2 ? 2 : 1}` : config.folder;
+  return Array.from({ length: config.count }, (_, index) =>
+    `/images/${folder}/${index + 1}.${config.extension}`
+  );
+};
+
 /* ─── Sticky Top Bar ─── */
 const TopBar = ({
   manga,
@@ -172,6 +189,7 @@ const Reader = () => {
     fetch(`http://localhost:5000/api/manga/${id}/chapter/${chapter}`)
       .then(r => r.json())
       .then(data => {
+        if (!data?.chapter || !Array.isArray(data.chapter.pages)) throw new Error("Invalid chapter");
         setChapterData(data.chapter);
         setLoading(false);
       })
@@ -179,9 +197,7 @@ const Reader = () => {
         /* fallback: show placeholder pages */
         setChapterData({
           title: `Chương ${chapter}`,
-          pages: Array.from({ length: 8 }, (_, i) =>
-            `https://picsum.photos/800/1200?random=${chapter}-${i}`
-          ),
+          pages: getLocalPages(Number(id), Number(chapter)),
         });
         setLoading(false);
       });

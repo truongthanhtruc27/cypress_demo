@@ -10,11 +10,13 @@ import Reader from "../pages/reader";
 import MangaList from "../pages/manga-list/MangaList";
 import Login from "../pages/login";
 import Register from "../pages/register";
+import ForgotPassword from "../pages/forgot-password";
 import Products from "../pages/products";
 import AdminPage from "../pages/admin";
 import Cart from "../pages/cart";
 import History from "../pages/history";
 import Profile from "../pages/profile";
+import CheckoutPage from "../pages/checkout";
 
 const AppRouter = () => {
   return (
@@ -30,6 +32,7 @@ const AppRouter = () => {
           {/* ===== AUTH ===== */}
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
 
           {/* ===== STATIC ===== */}
           <Route path="contact" element={<Contact />} />
@@ -40,6 +43,7 @@ const AppRouter = () => {
           <Route path="cart" element={<Cart />} />
           <Route path="history" element={<History />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="checkout" element={<CheckoutPage />} />
 
           {/* ===== MANGA ===== */}
           <Route path="manga/:id" element={<MangaDetail />} />

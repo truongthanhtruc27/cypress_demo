@@ -44,3 +44,42 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Góc Đọc Truyện
+
+Ứng dụng gồm React frontend và Express API backend.
+
+## Chạy local
+
+Terminal 1, chạy backend:
+
+```bash
+npm run server
+```
+
+API chạy tại `http://localhost:5000`. Kiểm tra bằng `GET /api/health`.
+
+Terminal 2, chạy frontend:
+
+```bash
+npm start
+```
+
+Frontend chạy tại `http://localhost:3000` và CRA proxy các request `/api` sang backend.
+
+## Khôi phục mật khẩu qua email
+
+Copy `server/.env.example` thành `server/.env`, sau đó điền thông tin SMTP. Với Gmail, cần bật xác minh 2 bước và tạo Google App Password, không dùng mật khẩu Gmail chính.
+
+Nếu chưa cấu hình SMTP ở môi trường development, backend sẽ in mã OTP trong terminal server để test. Mã có hiệu lực 10 phút.
+
+API chính:
+
+- `POST /api/manga/register`
+- `POST /api/manga/login`
+- `POST /api/manga/forgot-password`
+- `POST /api/manga/verify-reset-code`
+- `POST /api/manga/reset-password`
+- `GET /api/manga`
+- `GET /api/manga/:id/chapters`
+- `GET /api/manga/:id/chapter/:chapter`

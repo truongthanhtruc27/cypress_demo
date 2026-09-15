@@ -49,7 +49,7 @@ const UsersView = () => {
             {filtered.map(u => (
               <tr key={u.id} style={s.tr} className="adm-tr">
                 <td style={s.td}>{u.id}</td>
-                <td style={{ ...s.td, color: "#f1f5f9", fontWeight: 600 }}>{u.name}</td>
+                <td style={{ ...s.td, color: "#16202a", fontWeight: 700 }}>{u.name}</td>
                 <td style={s.td}>{u.email}</td>
                 <td style={s.td}>
                   <span style={{ ...s.badge, background: u.role === "Admin" ? "#6366f1" : u.role === "Mod" ? "#f59e0b" : "#334155" }}>
@@ -103,7 +103,7 @@ export const CommentsView = () => {
             {comments.map(c => (
               <tr key={c.id} style={s.tr} className="adm-tr">
                 <td style={s.td}>{c.id}</td>
-                <td style={{ ...s.td, color: "#f1f5f9", fontWeight: 600 }}>{c.user}</td>
+                <td style={{ ...s.td, color: "#16202a", fontWeight: 700 }}>{c.user}</td>
                 <td style={s.td}>{c.manga}</td>
                 <td style={{ ...s.td, maxWidth: 220 }}>{c.content}</td>
                 <td style={s.td}>{c.date}</td>
@@ -130,18 +130,18 @@ export const CommentsView = () => {
 };
 
 const s: Record<string, React.CSSProperties> = {
-  title: { color: "#f1f5f9", fontSize: 22, fontWeight: 800, margin: "0 0 24px" },
+  title: { color: "#16202a", fontSize: 22, fontWeight: 800, margin: "0 0 24px" },
   toolbar: { display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" as const },
-  input: { background: "#1e2435", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, padding: "9px 14px", color: "#f1f5f9", fontSize: 13, outline: "none", flex: 1, minWidth: 200 },
+  input: { background: "#ffffff", border: "1px solid #d6e0e7", borderRadius: 8, padding: "9px 14px", color: "#16202a", fontSize: 13, outline: "none", flex: 1, minWidth: 200 },
   btnBlue: { background: "#3b82f6", border: "none", color: "#fff", borderRadius: 8, padding: "9px 18px", fontSize: 13, fontWeight: 700, cursor: "pointer" },
   btnEdit: { background: "#f59e0b", border: "none", color: "#fff", borderRadius: 6, padding: "5px 12px", fontSize: 11, fontWeight: 700, cursor: "pointer" },
   btnDel: { background: "#ef4444", border: "none", color: "#fff", borderRadius: 6, padding: "5px 12px", fontSize: 11, fontWeight: 700, cursor: "pointer" },
-  tableWrap: { background: "#1e2435", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, overflow: "auto" },
+  tableWrap: { background: "#ffffff", border: "1px solid #e4e9ef", borderRadius: 14, overflow: "auto" },
   table: { width: "100%", borderCollapse: "collapse" as const, fontSize: 13 },
   thead: { background: "rgba(34,197,94,0.1)" },
   th: { color: "#94a3b8", fontWeight: 700, padding: "12px 14px", textAlign: "left" as const, borderBottom: "1px solid rgba(255,255,255,0.07)", whiteSpace: "nowrap" as const },
   tr: { borderBottom: "1px solid rgba(255,255,255,0.04)" },
-  td: { color: "#94a3b8", padding: "11px 14px" },
+  td: { color: "#52616d", padding: "11px 14px" },
   badge: { color: "#fff", fontSize: 10, fontWeight: 700, padding: "3px 9px", borderRadius: 20 },
 };
 

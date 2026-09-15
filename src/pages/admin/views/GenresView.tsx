@@ -92,7 +92,7 @@ const GenresView = () => {
                       className="adm-input"
                     />
                   ) : (
-                    <span style={{ color: "#f1f5f9", fontWeight: 600 }}>{g.name}</span>
+                    <span style={{ color: "#16202a", fontWeight: 700 }}>{g.name}</span>
                   )}
                 </td>
                 <td style={s.td}>{g.count}</td>
@@ -119,22 +119,22 @@ const GenresView = () => {
 };
 
 const s: Record<string, React.CSSProperties> = {
-  title: { color: "#f1f5f9", fontSize: 22, fontWeight: 800, margin: "0 0 24px" },
+  title: { color: "#16202a", fontSize: 22, fontWeight: 800, margin: "0 0 24px" },
   toolbar: { display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap" as const, alignItems: "center" },
   searchWrap: { display: "flex", gap: 8, flex: 1, minWidth: 200 },
   addForm: { display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" as const },
-  input: { background: "#1e2435", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, padding: "9px 14px", color: "#f1f5f9", fontSize: 13, outline: "none", flex: 1, minWidth: 160 },
+  input: { background: "#ffffff", border: "1px solid #d6e0e7", borderRadius: 8, padding: "9px 14px", color: "#16202a", fontSize: 13, outline: "none", flex: 1, minWidth: 160 },
   btnBlue: { background: "#3b82f6", border: "none", color: "#fff", borderRadius: 8, padding: "9px 18px", fontSize: 13, fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap" as const },
   btnGreen: { background: "#22c55e", border: "none", color: "#fff", borderRadius: 8, padding: "9px 18px", fontSize: 13, fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap" as const },
   btnGray: { background: "#475569", border: "none", color: "#fff", borderRadius: 8, padding: "9px 14px", fontSize: 13, cursor: "pointer" },
   btnEdit: { background: "#f59e0b", border: "none", color: "#fff", borderRadius: 6, padding: "5px 14px", fontSize: 12, fontWeight: 700, cursor: "pointer" },
   btnDel: { background: "#ef4444", border: "none", color: "#fff", borderRadius: 6, padding: "5px 14px", fontSize: 12, fontWeight: 700, cursor: "pointer" },
-  tableWrap: { background: "#1e2435", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, overflow: "auto" },
+  tableWrap: { background: "#ffffff", border: "1px solid #e4e9ef", borderRadius: 14, overflow: "auto" },
   table: { width: "100%", borderCollapse: "collapse" as const, fontSize: 13 },
   thead: { background: "rgba(99,102,241,0.15)" },
   th: { color: "#94a3b8", fontWeight: 700, padding: "13px 18px", textAlign: "left" as const, borderBottom: "1px solid rgba(255,255,255,0.07)" },
   tr: { borderBottom: "1px solid rgba(255,255,255,0.04)" },
-  td: { color: "#94a3b8", padding: "12px 18px" },
+  td: { color: "#52616d", padding: "12px 18px" },
 };
 
 export default GenresView;

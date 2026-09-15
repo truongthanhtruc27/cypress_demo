@@ -1,0 +1,514 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../cypress-test-report.xls">
+<link rel=File-List href=filelist.xml>
+<title>Báo cáo kiểm thử Cypress</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--td
+	{padding-bottom:7px;
+	padding-top:7px;}
+table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:1.0in .75in 1.0in .75in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../cypress-test-report.xls");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link="#0563C1" vlink="#954F72" class=xl65>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1564 style='border-collapse:
+ collapse;table-layout:fixed;width:1174pt'>
+ <col class=xl65 width=118 style='mso-width-source:userset;mso-width-alt:4209;
+ width:89pt'>
+ <col class=xl65 width=256 style='mso-width-source:userset;mso-width-alt:9102;
+ width:192pt'>
+ <col class=xl65 width=134 style='mso-width-source:userset;mso-width-alt:4778;
+ width:101pt'>
+ <col class=xl65 width=211 style='mso-width-source:userset;mso-width-alt:7509;
+ width:158pt'>
+ <col class=xl65 width=256 span=2 style='mso-width-source:userset;mso-width-alt:
+ 9102;width:192pt'>
+ <col class=xl65 width=77 style='mso-width-source:userset;mso-width-alt:2730;
+ width:58pt'>
+ <col class=xl65 width=256 style='mso-width-source:userset;mso-width-alt:9102;
+ width:192pt'>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 colspan=4 width=719 style='height:30.0pt;mso-ignore:
+  colspan;width:540pt'>BÁO CÁO CHI TIẾT TESTCASE CYPRESS</td>
+  <td class=xl65 width=256 style='width:192pt'></td>
+  <td class=xl65 width=256 style='width:192pt'></td>
+  <td class=xl65 width=77 style='width:58pt'></td>
+  <td class=xl65 width=256 style='width:192pt'></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl65 style='height:14.4pt'></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl67 width=118 style='height:14.4pt;width:89pt'>Thông tin</td>
+  <td class=xl67 width=256 style='border-left:none;width:192pt'>Giá trị</td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 width=118 style='height:14.4pt;border-top:none;
+  width:89pt'>Dự án</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Góc
+  Đọc Truyện</td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 width=118 style='height:14.4pt;border-top:none;
+  width:89pt'>Công cụ</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Cypress
+  15.21.1</td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 width=118 style='height:14.4pt;border-top:none;
+  width:89pt'>Ngày báo cáo</td>
+  <td class=xl69 align=right width=256 style='border-top:none;border-left:none;
+  width:192pt'>04/09/2026</td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 width=118 style='height:14.4pt;border-top:none;
+  width:89pt'>Tổng số testcase</td>
+  <td class=xl68 align=right width=256 style='border-top:none;border-left:none;
+  width:192pt'>20</td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 width=118 style='height:14.4pt;border-top:none;
+  width:89pt'>Đã pass</td>
+  <td class=xl70 align=right width=256 style='border-top:none;border-left:none;
+  width:192pt'>20</td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 width=118 style='height:14.4pt;border-top:none;
+  width:89pt'>Đã fail</td>
+  <td class=xl68 align=right width=256 style='border-top:none;border-left:none;
+  width:192pt'>0</td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 width=118 style='height:14.4pt;border-top:none;
+  width:89pt'>Tỷ lệ pass</td>
+  <td class=xl71 align=right width=256 style='border-top:none;border-left:none;
+  width:192pt'>100%</td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=93 style='height:69.6pt'>
+  <td height=93 class=xl68 width=118 style='height:69.6pt;border-top:none;
+  width:89pt'>Ghi chú</td>
+  <td class=xl72 width=256 style='border-top:none;border-left:none;width:192pt'>Đã
+  xử lý lỗi tương thích webpack-dev-server 4 với Cypress 15 bằng cách nâng lên
+  phiên bản 5.2.2. Đã bổ sung thông báo lỗi trực tiếp trong form đăng nhập để
+  testcase ổn định.</td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl65 style='height:14.4pt'></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+  <td class=xl65></td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl73 width=118 style='height:14.4pt;width:89pt'>STT</td>
+  <td class=xl73 width=256 style='border-left:none;width:192pt'>Mã TC</td>
+  <td class=xl73 width=134 style='border-left:none;width:101pt'>Spec</td>
+  <td class=xl73 width=211 style='border-left:none;width:158pt'>Chức năng</td>
+  <td class=xl73 width=256 style='border-left:none;width:192pt'>Các bước kiểm
+  thử</td>
+  <td class=xl73 width=256 style='border-left:none;width:192pt'>Kết quả mong
+  đợi</td>
+  <td class=xl73 width=77 style='border-left:none;width:58pt'>Trạng thái</td>
+  <td class=xl73 width=256 style='border-left:none;width:192pt'>Ghi chú</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>1</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC01</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>00_smoke.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Hiển
+  thị trang chủ</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Truy
+  cập /; kiểm tra URL và body</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Trang
+  chủ hiển thị, URL là /</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Smoke
+  test</td>
+ </tr>
+ <tr height=38 style='height:28.2pt'>
+  <td height=38 class=xl68 align=right width=118 style='height:28.2pt;
+  border-top:none;width:89pt'>2</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC02</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>01_auth.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Hiển
+  thị trang đăng nhập</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Truy
+  cập /login; kiểm tra ô tên, mật khẩu và nút đăng nhập</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Các
+  thành phần hiển thị</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=38 style='height:28.2pt'>
+  <td height=38 class=xl68 align=right width=118 style='height:28.2pt;
+  border-top:none;width:89pt'>3</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC03</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>01_auth.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Đăng
+  nhập thành công</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Nhập
+  tài khoản testuser và mật khẩu đúng; nhấn Đăng nhập</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị thông báo đăng nhập thành công</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=38 style='height:28.2pt'>
+  <td height=38 class=xl68 align=right width=118 style='height:28.2pt;
+  border-top:none;width:89pt'>4</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC04</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>01_auth.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Đăng
+  nhập sai mật khẩu</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Nhập
+  tài khoản hợp lệ và mật khẩu sai</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị Sai tài khoản hoặc mật khẩu!</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Thông
+  báo lỗi được render trực tiếp trong form</td>
+ </tr>
+ <tr height=38 style='height:28.2pt'>
+  <td height=38 class=xl68 align=right width=118 style='height:28.2pt;
+  border-top:none;width:89pt'>5</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC05</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>01_auth.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Đăng
+  nhập khi bỏ trống</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Nhấn
+  Đăng nhập khi chưa nhập dữ liệu</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị Vui lòng nhập đầy đủ thông tin!</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Đã
+  sửa lỗi Cypress không bắt được toast</td>
+ </tr>
+ <tr height=38 style='height:28.2pt'>
+  <td height=38 class=xl68 align=right width=118 style='height:28.2pt;
+  border-top:none;width:89pt'>6</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC06</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>01_auth.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Đăng
+  ký bỏ trống</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Truy
+  cập /register; nhấn Đăng ký</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị thông báo yêu cầu nhập đủ thông tin</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>7</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC07</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>01_auth.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Email
+  không hợp lệ</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Nhập
+  email abc và gửi form đăng ký</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị Email không hợp lệ!</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>8</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC08</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>01_auth.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Mật
+  khẩu xác nhận không khớp</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Nhập
+  hai mật khẩu khác nhau</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị Mật khẩu không khớp!</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>9</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC09</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>01_auth.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Truy
+  cập trang liên hệ</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Từ
+  trang chủ nhấn Liên hệ</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Đi
+  tới /contact; form liên hệ hiển thị</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>10</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC10</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>02_manga_list.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Danh
+  sách truyện hiển thị</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Truy
+  cập /manga-list</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Có
+  ít nhất một card hoặc row truyện</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>11</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC11</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>02_manga_list.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Tìm
+  kiếm truyện tồn tại</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Tìm
+  Solo Leveling</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị truyện Solo Leveling</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>12</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC12</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>02_manga_list.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Tìm
+  kiếm không tồn tại</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Tìm
+  TruyenKhongTonTai123</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị Không tìm thấy truyện</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>13</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC13</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>02_manga_list.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Lọc
+  theo thể loại</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Chọn
+  thể loại Nhiệt huyết</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Danh
+  sách kết quả vẫn hiển thị</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>14</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC14</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>02_manga_list.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Sắp
+  xếp theo đánh giá</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Chọn
+  rating-desc</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Danh
+  sách truyện hiển thị theo bộ lọc</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>15</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC15</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>02_manga_list.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Chuyển
+  dạng lưới/danh sách</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Chọn
+  Dạng lưới rồi Dạng danh sách</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị đúng ml-card và ml-row</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>16</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC16</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>03_reader.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Mở
+  trang chi tiết truyện</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Từ
+  manga-list nhấn Solo Leveling</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>URL
+  chứa /manga/</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=38 style='height:28.2pt'>
+  <td height=38 class=xl68 align=right width=118 style='height:28.2pt;
+  border-top:none;width:89pt'>17</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC17</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>03_reader.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Tìm
+  kiếm chương</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Truy
+  cập /manga/1; nhập 1 vào ô tìm chương</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị Chương 1</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=38 style='height:28.2pt'>
+  <td height=38 class=xl68 align=right width=118 style='height:28.2pt;
+  border-top:none;width:89pt'>18</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC18</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>03_reader.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Đọc
+  chương 1</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Nhấn
+  Đọc từ đầu</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>URL
+  chứa /chapter/1 và có ảnh trang truyện</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=19 style='height:14.4pt'>
+  <td height=19 class=xl68 align=right width=118 style='height:14.4pt;
+  border-top:none;width:89pt'>19</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC19</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>03_reader.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Chuyển
+  chương tiếp theo</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Từ
+  chapter 1 nhấn Chương tiếp</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>URL
+  chứa /chapter/2</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <tr height=38 style='height:28.2pt'>
+  <td height=38 class=xl68 align=right width=118 style='height:28.2pt;
+  border-top:none;width:89pt'>20</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>TC20</td>
+  <td class=xl68 width=134 style='border-top:none;border-left:none;width:101pt'>04_cart.cy.js</td>
+  <td class=xl68 width=211 style='border-top:none;border-left:none;width:158pt'>Thêm
+  truyện vào giỏ hàng</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Truy
+  cập manga/1; nhấn Thêm giỏ hàng</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>Hiển
+  thị Đã thêm</td>
+  <td class=xl70 width=77 style='border-top:none;border-left:none;width:58pt'>PASS</td>
+  <td class=xl68 width=256 style='border-top:none;border-left:none;width:192pt'>&nbsp;</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=118 style='width:89pt'></td>
+  <td width=256 style='width:192pt'></td>
+  <td width=134 style='width:101pt'></td>
+  <td width=211 style='width:158pt'></td>
+  <td width=256 style='width:192pt'></td>
+  <td width=256 style='width:192pt'></td>
+  <td width=77 style='width:58pt'></td>
+  <td width=256 style='width:192pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>
