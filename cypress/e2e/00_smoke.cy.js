@@ -324,6 +324,20 @@ it("TC16 - Thêm truyện vào giỏ hàng", () => {
 
  
 });
+it("TC17 - Kiểm tra truyện đã thêm xuất hiện trong giỏ hàng", () => {
+  cy.visit("/manga/1");
 
+  cy.contains("🛒 Thêm giỏ hàng")
+    .should("be.visible")
+    .click();
+
+  cy.contains("Đã thêm")
+    .should("be.visible");
+
+  cy.visit("/cart");
+
+  cy.contains("Solo Leveling")
+    .should("be.visible");
+});
 });
 });
